@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "datasource",
+  "name": "Google Calendar",
+  "id": "mtanda-googlecalendar-datasource",
+  "metrics": true,
+  "backend": true,
+  "executable": "gpx_google_calendar",
+  "info": {
+    "description": "",
+    "author": {
+      "name": "Mtanda"
+    },
+    "keywords": ["datasource"],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=10.0.3",
+    "plugins": []
+  }
+}
