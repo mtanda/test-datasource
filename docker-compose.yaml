@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   grafana:
-    container_name: 'mtanda-googlecalendar-datasource'
+    container_name: 'mtanda-google-calendar-datasource'
     platform: 'linux/amd64'
     build:
       context: ./.config
@@ -12,5 +12,5 @@ services:
     ports:
       - 3000:3000/tcp
     volumes:
-      - ./dist:/var/lib/grafana/plugins/mtanda-googlecalendar-datasource
+      - ./dist:/var/lib/grafana/plugins/mtanda-google-calendar-datasource
       - ./provisioning:/etc/grafana/provisioning
