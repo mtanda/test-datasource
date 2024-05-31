@@ -10,6 +10,7 @@ import {
 } from '@grafana/data';
 import { getTemplateSrv } from '@grafana/runtime';
 import { GoogleCalendarQuery, GoogleCalendarDataSourceOptions } from './types';
+import { AnnotationSupport } from './annotationSupport';
 import _ from 'lodash';
 import { parse, parseISO } from 'date-fns';
 
@@ -17,6 +18,8 @@ export class DataSource extends DataSourceApi<GoogleCalendarQuery, GoogleCalenda
   loaded: boolean;
   initialized: boolean;
   clientId: string;
+
+  annotations = AnnotationSupport;
 
   constructor(instanceSettings: DataSourceInstanceSettings<GoogleCalendarDataSourceOptions>) {
     super(instanceSettings);

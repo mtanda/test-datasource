@@ -4,6 +4,7 @@
   "name": "Google Calendar",
   "id": "mtanda-google-calendar-datasource",
   "metrics": true,
+  "annotations": true,
   "backend": false,
   "executable": "gpx_google_calendar",
   "info": {
