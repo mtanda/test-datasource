@@ -16,7 +16,7 @@ export function QueryEditor({ query, onChange, onRunQuery }: Props) {
   return (
     <div className="gf-form">
       <InlineField label="Calender ID" labelWidth={16}>
-        <Input onChange={onCalendarIdChange} value={calendarId || ''} />
+        <Input onChange={onCalendarIdChange} value={calendarId || ''} width={90} />
       </InlineField>
     </div>
   );

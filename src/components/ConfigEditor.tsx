@@ -49,7 +49,7 @@ export function ConfigEditor(props: Props) {
           onChange={onClientIdChange}
           value={jsonData.clientId || ''}
           placeholder="json field returned to frontend"
-          width={40}
+          width={75}
         />
       </InlineField>
       <InlineField label="Service account key file" labelWidth={20}>
@@ -57,7 +57,7 @@ export function ConfigEditor(props: Props) {
           isConfigured={(secureJsonFields && secureJsonFields.serviceAccountKeyFilePath) as boolean}
           value={secureJsonData.serviceAccountKeyFilePath || ''}
           placeholder="secure json field (backend only)"
-          width={40}
+          width={75}
           onReset={onResetServiceAccountKeyFilePath}
           onChange={onServiceAccountKeyFilePathChange}
         />

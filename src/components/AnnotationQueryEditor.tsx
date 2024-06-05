@@ -14,7 +14,7 @@ export const AnnotationQueryEditor = (props: Props) => {
   return (
     <>
       <EditorRow>
-        <EditorField label="Calendar Id" width={16}>
+        <EditorField label="Calendar Id" width={90}>
           <Input
             value={query.calendarId || ''}
             onChange={(event: ChangeEvent<HTMLInputElement>) => onChange({ ...query, calendarId: event.target.value })}
