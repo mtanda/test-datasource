@@ -1,65 +1,65 @@
 import React, { ChangeEvent } from 'react';
 import { InlineField, Input, SecretInput } from '@grafana/ui';
 import { DataSourcePluginOptionsEditorProps } from '@grafana/data';
-import { MyDataSourceOptions, MySecureJsonData } from '../types';
+import { GoogleCalendarDataSourceOptions, GoogleCalendarSecureJsonData } from '../types';
 
-interface Props extends DataSourcePluginOptionsEditorProps<MyDataSourceOptions> {}
+interface Props extends DataSourcePluginOptionsEditorProps<GoogleCalendarDataSourceOptions> {}
 
 export function ConfigEditor(props: Props) {
   const { onOptionsChange, options } = props;
-  const onPathChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onClientIdChange = (event: ChangeEvent<HTMLInputElement>) => {
     const jsonData = {
       ...options.jsonData,
-      path: event.target.value,
+      clientId: event.target.value,
     };
     onOptionsChange({ ...options, jsonData });
   };
 
   // Secure field (only sent to the backend)
-  const onAPIKeyChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const onServiceAccountKeyFilePathChange = (event: ChangeEvent<HTMLInputElement>) => {
     onOptionsChange({
       ...options,
       secureJsonData: {
-        apiKey: event.target.value,
+        serviceAccountKeyFilePath: event.target.value,
       },
     });
   };
 
-  const onResetAPIKey = () => {
+  const onResetServiceAccountKeyFilePath = () => {
     onOptionsChange({
       ...options,
       secureJsonFields: {
         ...options.secureJsonFields,
-        apiKey: false,
+        serviceAccountKeyFilePath: false,
       },
       secureJsonData: {
         ...options.secureJsonData,
-        apiKey: '',
+        serviceAccountKeyFilePath: '',
       },
     });
   };
 
   const { jsonData, secureJsonFields } = options;
-  const secureJsonData = (options.secureJsonData || {}) as MySecureJsonData;
+  const secureJsonData = (options.secureJsonData || {}) as GoogleCalendarSecureJsonData;
 
   return (
     <div className="gf-form-group">
-      <InlineField label="Path" labelWidth={12}>
+      <InlineField label="Client ID" labelWidth={20}>
         <Input
-          onChange={onPathChange}
-          value={jsonData.path || ''}
+          onChange={onClientIdChange}
+          value={jsonData.clientId || ''}
           placeholder="json field returned to frontend"
-          width={40}
+          width={75}
         />
       </InlineField>
-      <InlineField label="API Key" labelWidth={12}>
+      <InlineField label="Service account key file" labelWidth={20}>
         <SecretInput
-          isConfigured={(secureJsonFields && secureJsonFields.apiKey) as boolean}
-          value={secureJsonData.apiKey || ''}
+          isConfigured={(secureJsonFields && secureJsonFields.serviceAccountKeyFilePath) as boolean}
+          value={secureJsonData.serviceAccountKeyFilePath || ''}
           placeholder="secure json field (backend only)"
-          width={40}
-          onReset={onResetAPIKey}
-          onChange={onAPIKeyChange}
+          width={75}
+          onReset={onResetServiceAccountKeyFilePath}
+          onChange={onServiceAccountKeyFilePathChange}
         />
       </InlineField>
     </div>
