@@ -1,14 +1,9 @@
-import { GoogleCalendarDatasource } from './datasource';
-import { GoogleCalendarQueryCtrl } from './query_ctrl';
-import { GoogleCalendarAnnotationsQueryCtrl } from './annotations_query_ctrl';
+import { DataSourcePlugin } from '@grafana/data';
+import { DataSource } from './datasource';
+import { ConfigEditor } from './components/ConfigEditor';
+import { QueryEditor } from './components/QueryEditor';
+import { GoogleCalendarQuery, GoogleCalendarDataSourceOptions } from './types';
 
-class GoogleCalendarConfigCtrl {
-  static templateUrl = 'config.html';
-}
-
-export {
-  GoogleCalendarDatasource as Datasource,
-  GoogleCalendarConfigCtrl as ConfigCtrl,
-  GoogleCalendarQueryCtrl as QueryCtrl,
-  GoogleCalendarAnnotationsQueryCtrl as AnnotationsQueryCtrl,
-};
+export const plugin = new DataSourcePlugin<DataSource, GoogleCalendarQuery, GoogleCalendarDataSourceOptions>(DataSource)
+  .setConfigEditor(ConfigEditor)
+  .setQueryEditor(QueryEditor);

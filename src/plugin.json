@@ -1,36 +1,31 @@
 {
-  "name": "GoogleCalendar",
-  "id": "mtanda-google-calendar-datasource",
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "datasource",
-
-  "partials": {
-    "config": "public/app/plugins/datasource/mtanda-google-calendar-datasource/config.html"
-  },
-
+  "name": "Google Calendar",
+  "id": "mtanda-google-calendar-datasource",
   "metrics": true,
   "annotations": true,
-  "hiddenQueries": true,
-  "backend": true,
-  "executable": "google-calendar-plugin",
-
+  "backend": false,
+  "executable": "gpx_google_calendar",
   "info": {
-    "description": "google calendar datasource",
+    "description": "",
     "author": {
-      "name": "Mitsuhiro Tanda"
+      "name": "Mtanda"
     },
-    "links": [
-      {"name": "GitHub", "url": "https://github.com/mtanda/grafana-google-calendar-datasource"},
-      {"name": "MIT License", "url": "https://github.com/mtanda/grafana-google-calendar-datasource/blob/master/LICENSE"}
+    "keywords": [
+      "datasource"
     ],
-    "screenshots": [
-      {"name": "Calendar", "path": "images/calendar.png"}
-    ],
-    "version": "1.0.8",
-    "updated": "2020-01-22"
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
   },
-
   "dependencies": {
-    "grafanaVersion": "6.5.x",
-    "plugins": [ ]
+    "grafanaDependency": ">=10.0.3",
+    "plugins": []
   }
 }
